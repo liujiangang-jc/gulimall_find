@@ -20,11 +20,11 @@ import com.atguigu.common.utils.R;
 
 
 /**
- * ?Ż?ȯ??Ϣ
+ * 优惠券信息
  *
- * @author ljg
- * @email 2049464827@qq.com
- * @date 2022-03-07 21:13:58
+ * @author leifengyang
+ * @email leifengyang@gmail.com
+ * @date 2019-10-08 09:36:40
  */
 @RefreshScope
 @RestController
@@ -33,24 +33,24 @@ public class CouponController {
     @Autowired
     private CouponService couponService;
 
+
     @Value("${coupon.user.name}")
     private String name;
     @Value("${coupon.user.age}")
     private Integer age;
+
     @RequestMapping("/test")
     public R test(){
+
         return R.ok().put("name",name).put("age",age);
     }
-
-
 
     @RequestMapping("/member/list")
     public R membercoupons(){
         CouponEntity couponEntity = new CouponEntity();
-        couponEntity.setCouponName("满一百送iPhone");
+        couponEntity.setCouponName("满100减10");
         return R.ok().put("coupons",Arrays.asList(couponEntity));
     }
-
 
     /**
      * 列表

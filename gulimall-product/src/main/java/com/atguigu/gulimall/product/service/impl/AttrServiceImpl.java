@@ -50,8 +50,6 @@ public class AttrServiceImpl extends ServiceImpl<AttrDao, AttrEntity> implements
     @Autowired
     CategoryService categoryService;
 
-
-
     @Override
     public PageUtils queryPage(Map<String, Object> params) {
         IPage<AttrEntity> page = this.page(
@@ -65,19 +63,16 @@ public class AttrServiceImpl extends ServiceImpl<AttrDao, AttrEntity> implements
     @Transactional
     @Override
     public void saveAttr(AttrVo attr) {
+        //1保存基本数据
         AttrEntity attrEntity = new AttrEntity();
-//        attrEntity.setAttrName(attr.getAttrName());
         BeanUtils.copyProperties(attr,attrEntity);
-        //1、保存基本数据
         this.save(attrEntity);
-        //2、保存关联关系
-        if(attr.getAttrType() == ProductConstant.AttrEnum.ATTR_TYPE_BASE.getCode() && attr.getAttrGroupId()!=null){
-            AttrAttrgroupRelationEntity relationEntity = new AttrAttrgroupRelationEntity();
-            relationEntity.setAttrGroupId(attr.getAttrGroupId());
-            relationEntity.setAttrId(attrEntity.getAttrId());
-            relationDao.insert(relationEntity);
-        }
 
+        //2保存关联关系
+        AttrAttrgroupRelationEntity relationEntity = new AttrAttrgroupRelationEntity();
+        relationEntity.setAttrGroupId(attr.getAttrGroupId());
+        relationEntity.setAttrId(attrEntity.getAttrId());
+        relationDao.insert(relationEntity);
 
     }
 

@@ -18,11 +18,11 @@ import com.atguigu.common.utils.R;
 
 
 /**
- * ??ɱ???Ʒ????
+ * 秒杀活动商品关联
  *
- * @author ljg
- * @email 2049464827@qq.com
- * @date 2022-03-07 21:13:58
+ * @author leifengyang
+ * @email leifengyang@gmail.com
+ * @date 2019-10-08 09:36:40
  */
 @RestController
 @RequestMapping("coupon/seckillskurelation")

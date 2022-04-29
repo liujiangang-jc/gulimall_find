@@ -7,11 +7,11 @@ import com.atguigu.gulimall.coupon.entity.CouponEntity;
 import java.util.Map;
 
 /**
- * ?Ż?ȯ??Ϣ
+ * 优惠券信息
  *
- * @author ljg
- * @email 2049464827@qq.com
- * @date 2022-03-07 21:13:58
+ * @author leifengyang
+ * @email leifengyang@gmail.com
+ * @date 2019-10-08 09:36:40
  */
 public interface CouponService extends IService<CouponEntity> {
 
